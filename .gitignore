@@ -3,6 +3,7 @@ node_modules
 /dist
 
 /config.js
+/public/javascripts/jquery.min.js
 
 # Log files
 npm-debug.log*
