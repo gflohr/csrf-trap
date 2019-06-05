@@ -8,12 +8,7 @@ let transactions = [];
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-	let data = {
-		name: 'Alice',
-		showMenu: 'true',
-		balance: balance,
-	};
-console.log('recipient? ', req.query);
+	let data = initData();
 	if (typeof req.query.recipient !== 'undefined'
 	    && !config.postOnly) {
 		handleTransaction(req.query, data);
@@ -22,17 +17,21 @@ console.log('recipient? ', req.query);
 });
 
 router.post('/', (req, res, next) => {
-	let data = {
-		name: 'Alice',
-		showMenu: 'true',
-		balance: balance,
-	};
+	let data = initData();
 	handleTransaction(req.body, data);
 	res.render('bank/index', data);
 });
 
+function initData() {
+	return {
+		name: 'Alice',
+		showMenu: 'true',
+		balance: balance,
+		transactions: transactions.reverse,
+	};
+}
+
 function handleTransaction(form, data) {
-	console.log(form);
 	const recipient = _.trim(form.recipient);
 	if (recipient === '') {
 		data.errorMsg = 'Recipient missing!';
@@ -47,13 +46,28 @@ function handleTransaction(form, data) {
 	transactions.push({
 		recipient: recipient,
 		amount: amount,
-		date: new Date(),
+		date: formatDate(new Date()),
 	});
 
 	balance -= amount;
 	data.balance = balance;
+	data.transactions = transactions.reverse();
+}
 
-	console.log('new balance: ' + balance);
+function formatDate(date) {
+	let formatted = 1900 + date.getYear()
+		+ '-'
+		+ _.padStart(date.getMonth(), 2, '0')
+		+ '-'
+		+ _.padStart(date.getDay(), 2, '0')
+		+ ' '
+		+ _.padStart(date.getHours())
+		+ ':'
+		+ _.padStart(date.getMinutes()
+		+ ':'
+		+ _.padStart(date.getSeconds()));
+
+	return formatted;
 }
 
 module.exports = router;

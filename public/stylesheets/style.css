@@ -8,6 +8,15 @@ a {
 }
 
 .error-message {
-        color: red;
-        font-style: italic;
+	color: red;
+	font-style: italic;
+}
+
+th, td {
+	border: 1px solid grey;
+	padding: 5px;
+}
+
+td.amount {
+	text-align: right;
 }

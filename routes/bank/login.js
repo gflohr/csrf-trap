@@ -12,7 +12,6 @@ router.post('/', (req, res, next) => {
 	} else {
 		res.render('bank/login', { title: 'Login', errorMsg: 'Login failure!' })
 	}
-	console.log(req.body);
 });
 
 module.exports = router;

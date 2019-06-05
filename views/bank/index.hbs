@@ -18,6 +18,7 @@
 	</form>
 </p>
 
+{{#if transactions.length}}
 <h2>Past Transactions</h2>
 <table>
 	<thead>
@@ -27,4 +28,14 @@
 			<th>Amount</th>
 		</tr>
 	</thead>
+	<tbody>
+		{{#each transactions}}
+		<tr>
+			<td>{{this.date}}</td>
+			<td>{{this.recipient}}</td>
+			<td class="amount">{{this.amount}} EUR</td>
+		</tr>
+		{{/each}}
+	</tbody>
 </table>
+{{/if}}
