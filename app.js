@@ -10,6 +10,7 @@ const auth = require('./modules/auth');
 var indexRouter = require('./routes/index');
 var bankRouter = require('./routes/bank/index');
 var bankLoginRouter = require('./routes/bank/login');
+var bankLogoutRouter = require('./routes/bank/logout');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(auth);
 app.use('/', indexRouter);
 app.use('/bank', bankRouter);
 app.use('/bank/login', bankLoginRouter);
+app.use('/bank/logout', bankLogoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
