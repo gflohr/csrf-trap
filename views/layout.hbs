@@ -5,6 +5,19 @@
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 	<body>
+		{{#if showMenu}}
+		<div>
+			<small>
+				<a href="/">Home</a>
+				<a href="logout">Logout</a>
+			</small>
+		</div>
+		{{/if}}
+		{{#if errorMsg}}
+		<div class="error-message">
+			{{ errorMsg }}
+		</div>
+		{{/if}}
 		<script src='/javascripts/jquery.min.js'></script>
 		{{{body}}}
 	</body>
