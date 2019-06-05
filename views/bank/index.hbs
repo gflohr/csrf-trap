@@ -1,3 +1,30 @@
 <h1>Online Banking!</h1>
 
 <p>Welcome, Alice!</p>
+
+<p>Current balance: {{balance}} EUR</p>
+
+<p>Spend some money:</p>
+
+<p>
+	<form method="POST" action="">
+		<label for="recipient">Recipient:</label>
+		<input id="recipient" name="recipient" value="Bob" />
+		<label for="amount">Amount:</label>
+		<input id="amount" name="amount"
+		       type="number" min="1" step="1" value="1" />&nbsp;EUR
+		<br />
+		<input type="submit" />
+	</form>
+</p>
+
+<h2>Past Transactions</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Recipient</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+</table>
