@@ -1,0 +1,24 @@
+{
+  "name": "csrf-trap",
+  "version": "1.0.0",
+  "description": "Sample site demonstrating cross-site request forgery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gflohr/csrf-trap.git"
+  },
+  "keywords": [
+    "csrf",
+    "xsrf",
+    "cors"
+  ],
+  "author": "Guido Flohr <guido.flohr@cantanea.com> (http://www.guido.flohr.net/)",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/gflohr/csrf-trap/issues"
+  },
+  "homepage": "https://github.com/gflohr/csrf-trap#readme"
+}
