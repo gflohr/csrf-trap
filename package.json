@@ -1,9 +1,10 @@
 {
   "name": "csrf-trap",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Sample site demonstrating cross-site request forgery",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/gflohr/csrf-trap/issues"
   },
-  "homepage": "https://github.com/gflohr/csrf-trap#readme"
+  "homepage": "https://github.com/gflohr/csrf-trap#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "http-errors": "^1.7.2",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1"
+  }
 }
