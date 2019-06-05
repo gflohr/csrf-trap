@@ -27,7 +27,7 @@ function initData() {
 		name: 'Alice',
 		showMenu: 'true',
 		balance: balance,
-		transactions: transactions.reverse,
+		transactions: transactions.reverse(),
 	};
 }
 
@@ -61,11 +61,11 @@ function formatDate(date) {
 		+ '-'
 		+ _.padStart(date.getDay(), 2, '0')
 		+ ' '
-		+ _.padStart(date.getHours())
+		+ _.padStart(date.getHours(), 2, '0')
 		+ ':'
-		+ _.padStart(date.getMinutes()
+		+ _.padStart(date.getMinutes(), 2, '0')
 		+ ':'
-		+ _.padStart(date.getSeconds()));
+		+ _.padStart(date.getSeconds(), 2, '0');
 
 	return formatted;
 }
