@@ -4,26 +4,14 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('csrf-trap:server');
-var http = require('http');
-var _ = require('lodash');
+const app = require('../app');
+const debug = require('debug')('csrf-trap:server');
+const http = require('http');
+const config = require('../modules/config');
 
-/* Configuration.  */
-let config = {
-	port: 3000
-};
-
-try {
-	// Override default configuration.
-	_.merge(config, require('../config'));
-	console.log('Server configuration: ');
-
-} catch(e) {
-	console.log('No configuration file "config.js" found, using defaults:');
-}
-
+console.log('Configuration:');
 console.log(config);
+
 app.set('port', config.port);
 
 /**

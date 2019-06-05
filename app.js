@@ -3,8 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var auth = require('./modules/auth');
+var session = require('express-session');
+const config = require('./modules/config');
+const auth = require('./modules/auth');
 
 var indexRouter = require('./routes/index');
 var bankRouter = require('./routes/bank/index');
@@ -19,9 +20,16 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser({
+	secret: config.secret
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+	secret: config.secret,
+	resave: false,
+	saveUninitialized: false
+}));
 app.use(auth);
 
 app.use('/', indexRouter);
