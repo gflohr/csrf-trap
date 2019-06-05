@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('csrf-trap:server');
 var http = require('http');
+var _ = require('lodash');
 
 /* Configuration.  */
 let config = {
@@ -15,7 +16,7 @@ let config = {
 
 try {
 	// Override default configuration.
-	_.merge(config, require('./config'));
+	_.merge(config, require('../config'));
 	console.log('Server configuration: ');
 
 } catch(e) {
