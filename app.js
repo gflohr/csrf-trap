@@ -20,9 +20,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser({
-	secret: config.secret
-}));
+app.use(cookieParser(config.secret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
@@ -30,6 +28,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false
 }));
+
 app.use(auth);
 
 app.use('/', indexRouter);
